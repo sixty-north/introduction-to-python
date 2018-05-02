@@ -2,3 +2,6 @@
 __pycache__
 *.pyc
 cold-start/mandel.bmp
+*.egg-info
+dist
+build
