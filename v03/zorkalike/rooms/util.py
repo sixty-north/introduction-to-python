@@ -4,7 +4,7 @@ from .room import Room
 from ..direction import Direction
 
 
-DIRECTIONS = {
+DIR_COMPLEMENTS = {
     from_dir: start_dir
     for from_dir, start_dir
     in chain(permutations((Direction.North, Direction.South)),
@@ -13,7 +13,7 @@ DIRECTIONS = {
 
 
 def connect(room_from: Room, room_to: Room, dir_from: Direction):
-    dir_to = DIRECTIONS[dir_from]
+    dir_to = DIR_COMPLEMENTS[dir_from]
 
     if room_from.doors.get(dir_from) is not None:
         raise ValueError(
