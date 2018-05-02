@@ -5,3 +5,5 @@ cold-start/mandel.bmp
 *.egg-info
 dist
 build
+.hypothesis
+.pytest_cache
