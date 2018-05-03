@@ -60,7 +60,7 @@ setup(
     extras_require={
         # 'dev': ['check-manifest', 'wheel'],
         # 'doc': ['sphinx', 'cartouche'],
-        # 'test': ['hypothesis', 'pytest'],
+        'test': ['pytest', 'pytest-aiohttp'],
     },
     entry_points={
         'console_scripts': [

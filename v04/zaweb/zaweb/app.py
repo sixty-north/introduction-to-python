@@ -66,7 +66,7 @@ class Handlers:
         raise web.HTTPOk
 
 
-def main():
+def make_app():
     app = web.Application()
     handlers = Handlers()
     app.add_routes([
@@ -76,6 +76,11 @@ def main():
         web.get('/command', handlers.command),
         web.get('/reset', handlers.reset)
     ])
+    return app
+
+
+def main():
+    app = make_app()
     web.run_app(app)
 
 
