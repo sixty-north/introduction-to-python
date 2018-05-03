@@ -6,8 +6,12 @@ python:
   - "3.6"
 
 install:
-  - pip install pytest
+  - pip install pytest hypothesis pytest-aiohttp
 
 script:
   - cd test
   - bash run-tests.sh
+  - cd ../v03
+  - pytest test
+  - cd ../v04/zaweb
+  - PYTHONPATH=../zorkalike pytest test
