@@ -12,6 +12,6 @@ script:
   - cd test
   - bash run-tests.sh
   - cd ../v03
-  - pytest test
+  - PYTHONPATH=. pytest test
   - cd ../v04/zaweb
-  - PYTHONPATH=../zorkalike pytest test
+  - PYTHONPATH=../zorkalike:. pytest test
