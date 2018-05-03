@@ -20,8 +20,8 @@ def test_playthrough():
 
     desc = list(room_details(game.current_room))
     assert desc == ['You are in a dark room.',
-                    'There is a door to the north',
-                    'There is a door to the east']
+                    'There is a door to the east',
+                    'There is a door to the north']
 
     response = _process_command('south', game)
     assert response == ['There is no door to the south']
@@ -48,8 +48,8 @@ def test_playthrough():
 
     desc = list(room_details(game.current_room))
     assert desc == ['You are in a dark room.',
-                    'There is a door to the north',
-                    'There is a door to the east']
+                    'There is a door to the east',
+                    'There is a door to the north']
 
     response = _process_command('east', game)
     assert response == []
