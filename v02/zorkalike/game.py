@@ -45,7 +45,7 @@ def process_standard_commands(command, game):
     elif command == 'description':
         print(game.current_room.description)
     elif command == 'inventory':
-        print('Inventory %s' % game.player.inventory)
+        print('Inventory {}'.format(game.player.inventory))
     elif command == 'quit':
         game.player.alive = False
     else:
