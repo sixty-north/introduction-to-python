@@ -20,17 +20,17 @@ def test_playthrough():
 
     desc = list(room_details(game.current_room))
     assert desc == ['You are in a dark room.',
-                    'There is a door to the east',
-                    'There is a door to the north']
+                    'There is a door to the east.',
+                    'There is a door to the north.']
 
     response = _process_command('south', game)
-    assert response == ['There is no door to the south']
+    assert response == ['There is no door to the south.']
 
     response = _process_command('north', game)
     assert response == []
 
     desc = list(room_details(game.current_room))
-    assert desc == ['This room is filled with 42 serene llamas.', 'There is a door to the south']
+    assert desc == ['This room is filled with 42 serene llamas.', 'There is a door to the south.']
 
     response = _process_command('pet llama', game)
     assert response == [
@@ -40,7 +40,7 @@ def test_playthrough():
     desc = list(room_details(game.current_room))
     assert desc == [
         'This room is filled with 41 serene llamas.',
-        'There is a door to the south'
+        'There is a door to the south.'
     ]
 
     response = _process_command('south', game)
@@ -48,15 +48,15 @@ def test_playthrough():
 
     desc = list(room_details(game.current_room))
     assert desc == ['You are in a dark room.',
-                    'There is a door to the east',
-                    'There is a door to the north']
+                    'There is a door to the east.',
+                    'There is a door to the north.']
 
     response = _process_command('east', game)
     assert response == []
 
     desc = list(room_details(game.current_room))
     assert desc == ['This room contains a grumpy looking bear.',
-                    'There is a door to the west']
+                    'There is a door to the west.']
 
     response = _process_command('pet bear', game)
     assert response == [

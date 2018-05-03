@@ -150,7 +150,7 @@ def process_standard_commands(command, game):
         room = game.current_room.doors[Direction(command)]
         game.current_room = room
     elif command in (d.value for d in Direction):
-        response.append('There is no door to the {}'.format(command))
+        response.append('There is no door to the {}.'.format(command))
     elif command == 'description':
         response.append(game.current_room.description)
     elif command == 'inventory':
@@ -169,7 +169,7 @@ def room_details(room):
     """
     yield room.description
     for direction in sorted(d.value for d in room.doors):
-        yield 'There is a door to the {}'.format(direction)
+        yield 'There is a door to the {}.'.format(direction)
 
 
 def main_loop(game):

@@ -31,53 +31,51 @@ class Processor:
         if not self.game.player.alive:
             response.append('You are dead.')
 
-        return ('ok', '\n'.join(response))
+        return ('ok', ' '.join(response))
 
 
-processor = Processor()
+class Handlers:
+    def __init__(self):
+        self.processor = Processor()
+        self.routes = web.RouteTableDef()
 
-routes = web.RouteTableDef()
+    async def home(self, request):
+        return web.Response(text='ZAWeb: A web front-end for Zorkalike!')
 
+    async def description(self, request):
+        desc = ' '.join(room_details(self.processor.game.current_room))
+        return web.json_response({
+            'description': desc
+        })
 
-@routes.get('/')
-async def home_view(request):
-    return web.Response(text='ZAWeb: A web front-end for Zorkalike!')
+    async def status(self, request):
+        return web.json_response({
+            'alive': self.processor.game.player.alive
+        })
 
+    async def command(self, request):
+        cmd = request.query['cmd']
+        status, msg = self.processor.process_command(cmd)
+        return web.json_response({
+            'status': status,
+            'message': msg
+        })
 
-@routes.get('/description')
-async def description_view(request):
-    desc = '\n'.join(room_details(processor.game.current_room))
-    return web.json_response({
-        'description': desc
-    })
-
-
-@routes.get('/status')
-async def status_view(request):
-    return web.json_response({
-        'alive': processor.game.player.alive
-    })
-
-
-@routes.get('/command')
-async def command_view(request):
-    cmd = request.query['cmd']
-    status, msg = processor.process_command(cmd)
-    return web.json_response({
-        'status': status,
-        'message': msg
-    })
-
-
-@routes.get('/reset')
-async def reset_view(request):
-    processor.reset()
-    raise web.HTTPOk
+    async def reset(self, request):
+        self.processor.reset()
+        raise web.HTTPOk
 
 
 def main():
     app = web.Application()
-    app.add_routes(routes)
+    handlers = Handlers()
+    app.add_routes([
+        web.get('/', handlers.home),
+        web.get('/description', handlers.description),
+        web.get('/status', handlers.status),
+        web.get('/command', handlers.command),
+        web.get('/reset', handlers.reset)
+    ])
     web.run_app(app)
 
 

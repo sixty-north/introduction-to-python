@@ -34,4 +34,4 @@ def room_details(room):
     """
     yield room.description
     for direction in sorted(d.value for d in room.doors):
-        yield 'There is a door to the {}'.format(direction)
+        yield 'There is a door to the {}.'.format(direction)
