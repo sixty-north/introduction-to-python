@@ -24,7 +24,7 @@ To run the (very basic) smoke tests, do this::
 This simulates a run through the game for each of the available implementation
 to make sure they aren't diverging.
 
-.. |Python version| image:: https://img.shields.io/badge/Python_version-3.4+-blue.svg
+.. |Python version| image:: https://img.shields.io/badge/Python_version-3.6+-blue.svg
    :target: https://www.python.org/
 .. |Build Status| image:: https://travis-ci.org/sixty-north/introduction-to-python.png?branch=master
    :target: https://travis-ci.org/sixty-north/introduction-to-python
