@@ -20,8 +20,11 @@ class Room(ABC):
 
     def process_command(self, command, player):
         """Process room-specific commands.
+
+        Returns: An iterable of response string if the room handled the
+            command, or None.
         """
-        return False
+        return None
 
     @property
     @abstractmethod
@@ -57,14 +60,12 @@ class LlamaRoom(Room):
     def process_command(self, command, player):
         if command == 'pet llama':
             if self.contents['llama'] < 1:
-                print('Unfortunately there are no llamas to pet.')
+                return ['Unfortunately there are no llamas to pet.']
             else:
-                print(
-                    'The llama looks pleased and then gallops off, its mission in this dimension completed.')
                 self.contents['llama'] -= 1
-            return True
+                return ['The llama looks pleased and then gallops off, its mission in this dimension completed.']
 
-        return False
+        return None
 
 
 class BearRoom(StaticRoom):
@@ -73,15 +74,14 @@ class BearRoom(StaticRoom):
 
     def __init__(self):
         super(BearRoom, self).__init__(
-            description='This rooms contains a grumpy looking bear.',
+            description='This room contains a grumpy looking bear.',
             contents={'bear': 1})
 
     def process_command(self, command, player):
         if command == 'pet bear':
-            print('The bear is not impressed and re-enacts "The Revenant" on you.')
             player.alive = False
-            return True
-        return False
+            return ['The bear is not impressed and re-enacts "The Revenant" on you.']
+        return None
 
 
 class Game:
@@ -97,7 +97,7 @@ class Direction(Enum):
     West = 'west'
 
 
-DIRECTIONS = {
+DIR_COMPLEMENTS = {
     from_dir: start_dir
     for from_dir, start_dir
     in chain(permutations((Direction.North, Direction.South)),
@@ -106,12 +106,13 @@ DIRECTIONS = {
 
 
 def connect(room_from: Room, room_to: Room, dir_from: Direction):
-    dir_to = DIRECTIONS[dir_from]
+    dir_to = DIR_COMPLEMENTS[dir_from]
 
     if room_from.doors.get(dir_from) is not None:
         raise ValueError(
             'The {} door in {} is already assigned'.format(
                 dir_from.value, room_from))
+
     if room_to.doors.get(dir_to) is not None:
         raise ValueError(
             'The {} door in {} is already assigned'.format(
@@ -141,34 +142,34 @@ def process_standard_commands(command, game):
     This includes things like following directions, checking inventory, exiting
     the game, etc.
 
-    Returns true if the command is recognized and processed. Otherwise, returns
-    false.
-
+    Returns: An iterable of response strings if the command was processed, or
+        None.
     """
+    response = []
     if command in (d.value for d in game.current_room.doors):
         room = game.current_room.doors[Direction(command)]
         game.current_room = room
     elif command in (d.value for d in Direction):
-        print('There is no door to the {}'.format(command))
+        response.append('There is no door to the {}'.format(command))
     elif command == 'description':
-        print(game.current_room.description)
+        response.append(game.current_room.description)
     elif command == 'inventory':
-        print('Inventory {}'.format(game.player.inventory))
+        response.append('Inventory {}'.format(game.player.inventory))
     elif command == 'quit':
         game.player.alive = False
     else:
         # unrecognized command
-        return False
+        return None
 
-    return True
+    return response
 
 
-def print_room_details(room):
-    """Print the details of the current room.
+def room_details(room):
+    """Get the details of the current room.
     """
-    print(room.description)
+    yield room.description
     for direction in room.doors:
-        print('There is a door to the {}'.format(direction.value))
+        yield 'There is a door to the {}'.format(direction.value)
 
 
 def main_loop(game):
@@ -180,12 +181,20 @@ def main_loop(game):
             return
 
         print('')
-        print_room_details(game.current_room)
+        for line in room_details(game.current_room):
+            print(line)
+
         command = input('> ')
-        handled = process_standard_commands(command, game) \
-            or game.current_room.process_command(command, game.player)
-        if not handled:
+
+        response = process_standard_commands(command, game)
+        if response is None:
+            response = game.current_room.process_command(command, game.player)
+
+        if response is None:
             print('unrecognized command!')
+        else:
+            for line in response:
+                print(line)
 
 
 if __name__ == '__main__':

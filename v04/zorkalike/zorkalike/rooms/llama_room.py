@@ -22,4 +22,4 @@ class LlamaRoom(Room):
                 self.contents['llama'] -= 1
                 return ['The llama looks pleased and then gallops off, its mission in this dimension completed.']
 
-        return False
+        return None

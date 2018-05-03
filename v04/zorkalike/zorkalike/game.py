@@ -1,5 +1,4 @@
-import zorkalike.player
-import zorkalike.rooms.util
+from zorkalike.player import Player
 
 from .direction import Direction
 from .rooms.bear_room import BearRoom
@@ -24,7 +23,8 @@ def make_game():
     connect(start_room, llama_room, Direction.North)
     connect(start_room, bear_room, Direction.East)
 
-    return Game(start_room, zorkalike.player.Player())
+    game = Game(start_room, Player())
+    return game
 
 
 def process_standard_commands(command, game):
@@ -33,9 +33,8 @@ def process_standard_commands(command, game):
     This includes things like following directions, checking inventory, exiting
     the game, etc.
 
-    Returns true if the command is recognized and processed. Otherwise, returns
-    false.
-
+    Returns: An iterable of response strings if the command was processed, or
+        None.
     """
     response = []
     if command in (d.value for d in game.current_room.doors):
@@ -67,6 +66,7 @@ def main_loop(game):
         print('')
         for line in room_details(game.current_room):
             print(line)
+
         command = input('> ')
 
         response = process_standard_commands(command, game)
@@ -78,7 +78,3 @@ def main_loop(game):
         else:
             for line in response:
                 print(line)
-
-
-def main():
-    main_loop(make_game())

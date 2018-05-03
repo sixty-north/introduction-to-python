@@ -19,6 +19,7 @@ def connect(room_from: Room, room_to: Room, dir_from: Direction):
         raise ValueError(
             'The {} door in {} is already assigned'.format(
                 dir_from.value, room_from))
+
     if room_to.doors.get(dir_to) is not None:
         raise ValueError(
             'The {} door in {} is already assigned'.format(
@@ -28,9 +29,9 @@ def connect(room_from: Room, room_to: Room, dir_from: Direction):
     room_to.doors[dir_to] = room_from
 
 
-def print_room_details(room):
-    """Print the details of the current room.
+def room_details(room):
+    """Get the details of the current room.
     """
-    print(room.description)
+    yield room.description
     for direction in room.doors:
-        print('There is a door to the {}'.format(direction.value))
+        yield 'There is a door to the {}'.format(direction.value)

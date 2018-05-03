@@ -1,11 +1,10 @@
-import zorkalike.player
-import zorkalike.rooms.util
+from zorkalike.player import Player
 
 from .direction import Direction
 from .rooms.bear_room import BearRoom
 from .rooms.llama_room import LlamaRoom
 from .rooms.static_room import StaticRoom
-from .rooms.util import connect, print_room_details
+from .rooms.util import connect, room_details
 
 
 class Game:
@@ -24,7 +23,8 @@ def make_game():
     connect(start_room, llama_room, Direction.North)
     connect(start_room, bear_room, Direction.East)
 
-    return Game(start_room, zorkalike.player.Player())
+    game = Game(start_room, Player())
+    return game
 
 
 def process_standard_commands(command, game):
@@ -33,26 +33,26 @@ def process_standard_commands(command, game):
     This includes things like following directions, checking inventory, exiting
     the game, etc.
 
-    Returns true if the command is recognized and processed. Otherwise, returns
-    false.
-
+    Returns: An iterable of response strings if the command was processed, or
+        None.
     """
+    response = []
     if command in (d.value for d in game.current_room.doors):
         room = game.current_room.doors[Direction(command)]
         game.current_room = room
     elif command in (d.value for d in Direction):
-        print('There is no door to the {}'.format(command))
+        response.append('There is no door to the {}'.format(command))
     elif command == 'description':
-        print(game.current_room.description)
+        response.append(game.current_room.description)
     elif command == 'inventory':
-        print('Inventory {}'.format(game.player.inventory))
+        response.append('Inventory {}'.format(game.player.inventory))
     elif command == 'quit':
         game.player.alive = False
     else:
         # unrecognized command
-        return False
+        return None
 
-    return True
+    return response
 
 
 def main_loop(game):
@@ -64,12 +64,17 @@ def main_loop(game):
             return
 
         print('')
-        print_room_details(game.current_room)
-        command = input('> ')
-        handled = process_standard_commands(command, game) \
-            or game.current_room.process_command(command, game.player)
-        if not handled:
-            print('unrecognized command!')
+        for line in room_details(game.current_room):
+            print(line)
 
-def main():
-    main_loop(make_game())
+        command = input('> ')
+
+        response = process_standard_commands(command, game)
+        if response is None:
+            response = game.current_room.process_command(command, game.player)
+
+        if response is None:
+            print('unrecognized command!')
+        else:
+            for line in response:
+                print(line)

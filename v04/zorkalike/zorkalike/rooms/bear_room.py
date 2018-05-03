@@ -1,12 +1,13 @@
 from .static_room import StaticRoom
 
+
 class BearRoom(StaticRoom):
     """A room containing a bear.
     """
 
     def __init__(self):
         super(BearRoom, self).__init__(
-            description='This rooms contains a grumpy looking bear.',
+            description='This room contains a grumpy looking bear.',
             contents={'bear': 1})
 
     def process_command(self, command, player):

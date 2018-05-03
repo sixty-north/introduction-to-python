@@ -9,6 +9,9 @@ class Room(ABC):
 
     def process_command(self, command, player):
         """Process room-specific commands.
+
+        Returns: An iterable of response string if the room handled the
+            command, or None.
         """
         return None
 

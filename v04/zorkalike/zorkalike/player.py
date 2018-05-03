@@ -4,4 +4,5 @@ class Player:
         self.alive = True
 
     def __repr__(self):
-        return 'Player(alive={}, inventory={})'.format(self.alive, self.inventory)
+        return 'Player(alive={}, inventory={})'.format(self.alive,
+                                                       self.inventory)
