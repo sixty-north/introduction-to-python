@@ -78,3 +78,7 @@ def main_loop(game):
         else:
             for line in response:
                 print(line)
+
+
+def main():
+    main_loop(make_game())

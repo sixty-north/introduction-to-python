@@ -1,4 +1,4 @@
-from .game import main_loop, make_game
+from .game import main
 
 
-main_loop(make_game())
+main()
