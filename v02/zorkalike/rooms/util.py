@@ -33,5 +33,5 @@ def room_details(room):
     """Get the details of the current room.
     """
     yield room.description
-    for direction in (d.value for d in room.doors):
+    for direction in sorted(d.value for d in room.doors):
         yield 'There is a door to the {}'.format(direction)
