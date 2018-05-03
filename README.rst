@@ -6,6 +6,13 @@
 
 Supporting material for our "Introduction to Python" talk.
 
+Dependencies
+============
+
+To install the depencies for the talk::
+
+    pip install -r requirements.txt
+
 Tests
 =====
 
