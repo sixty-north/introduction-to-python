@@ -13,5 +13,6 @@ class BearRoom(StaticRoom):
     def process_command(self, command, player):
         if command == 'pet bear':
             player.alive = False
-            return ['The bear is not impressed and re-enacts "The Revenant" on you.']
+            return ['The bear is not impressed and re-enacts '
+                    '"The Revenant" on you.']
         return None

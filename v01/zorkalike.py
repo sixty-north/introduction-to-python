@@ -9,7 +9,8 @@ class Player:
         self.alive = True
 
     def __repr__(self):
-        return 'Player(alive={}, inventory={})'.format(self.alive, self.inventory)
+        return 'Player(alive={}, inventory={})'.format(
+            self.alive, self.inventory)
 
 
 class Room(ABC):
@@ -63,7 +64,8 @@ class LlamaRoom(Room):
                 return ['Unfortunately there are no llamas to pet.']
             else:
                 self.contents['llama'] -= 1
-                return ['The llama looks pleased and then gallops off, its mission in this dimension completed.']
+                return ['The llama looks pleased and then gallops off, '
+                        'its mission in this dimension completed.']
 
         return None
 
@@ -80,7 +82,8 @@ class BearRoom(StaticRoom):
     def process_command(self, command, player):
         if command == 'pet bear':
             player.alive = False
-            return ['The bear is not impressed and re-enacts "The Revenant" on you.']
+            return ['The bear is not impressed and re-enacts '
+                    '"The Revenant" on you.']
         return None
 
 
