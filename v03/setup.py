@@ -1,6 +1,5 @@
 import io
 import os
-import re
 from setuptools import setup, find_packages
 
 
@@ -18,20 +17,18 @@ def read(*names, **kwargs):
         return fp.read()
 
 
-def read_version():
-    version_file = local_file('zorkalike', 'version.py')
+def read_version(version_file):
     local_vars = {}
     with open(version_file) as handle:
         exec(handle.read(), {}, local_vars)  # pylint: disable=exec-used
     return (local_vars['__version__'], local_vars['__version_info__'])
 
 
-
 long_description = read('README.rst', mode='rt')
 
 setup(
     name='zorkalike',
-    version=read_version()[0],
+    version=read_version(local_file('zorkalike', 'version.py'))[0],
     packages=find_packages(exclude=['contrib', 'docs', 'test*']),
 
     author='Sixty North AS',
