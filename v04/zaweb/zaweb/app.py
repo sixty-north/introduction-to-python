@@ -37,7 +37,6 @@ class Processor:
 class Handlers:
     def __init__(self):
         self.processor = Processor()
-        self.routes = web.RouteTableDef()
 
     async def home(self, request):
         return web.Response(text='ZAWeb: A web front-end for Zorkalike!')
