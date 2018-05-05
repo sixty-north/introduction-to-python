@@ -7,7 +7,6 @@ from zorkalike.rooms.static_room import StaticRoom
 from zorkalike.rooms.util import connect, DIR_COMPLEMENTS
 
 
-
 @given(ST.sampled_from(Direction))
 def test_room_connections_are_complementary(direction):
     r1 = StaticRoom('Room 1')
