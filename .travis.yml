@@ -4,7 +4,7 @@ python:
   - "3.6"
 
 install:
-  - pip install pytest hypothesis
+  - pip install pytest hypothesis flask pytest-flask
 
 script:
   - cd test
@@ -12,5 +12,4 @@ script:
   - cd ../v03
   - PYTHONPATH=. pytest test
   - cd ../v04/zaweb
-  - pip install ".[test]"
   - PYTHONPATH=../zorkalike:. pytest test
