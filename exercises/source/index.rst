@@ -11,6 +11,7 @@ Introduction to Python Workshop
    :caption: Contents:
 
    exercise_1
+   exercise_2
 
 
 Indices and tables
