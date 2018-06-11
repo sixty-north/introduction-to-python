@@ -51,7 +51,7 @@ setup(
     platforms='any',
     include_package_data=True,
     install_requires=[
-        'aiohttp',
+        'flask',
         'zorkalike'
     ],
     # List additional groups of dependencies here (e.g. development
@@ -60,7 +60,7 @@ setup(
     extras_require={
         # 'dev': ['check-manifest', 'wheel'],
         # 'doc': ['sphinx', 'cartouche'],
-        'test': ['pytest', 'pytest-aiohttp'],
+        'test': ['pytest', 'pytest-flask'],
     },
     entry_points={
         'console_scripts': [
