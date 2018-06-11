@@ -42,7 +42,7 @@ At this prompt, run this command to clone the repository:
 
    When we show shell commands like this we'll prefix them with ``$``. This
    punctuation is **not** part of what you type; it merely indicates the prompt.
-   This allows us to visually disinguish commands from there output which is not
+   This allows us to visually disinguish commands from their output which is not
    prefixed with ``$``.
 
 This will create a directory named ``introduction-to-python``. You can navigate to
