@@ -14,6 +14,7 @@ Introduction to Python Workshop
    exercise_2
    exercise_3
    exercise_4
+   exercise_5
 
 
 Indices and tables

@@ -11,7 +11,7 @@ In this exercise we'll create a new virtual environment, install our
 ``zorkalike`` package into it, and see that we can run our program from anywhere
 in the system.
 
-.. note:: virtualenvwrapper
+.. admonition:: virtualenvwrapper
 
    The Python standard library provides the basic support for virtual
    environment via the `venv <https://docs.python.org/3/library/venv.html>`_
