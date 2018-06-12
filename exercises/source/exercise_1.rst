@@ -18,7 +18,7 @@ So the first thing you need to do is create a pythonanywhere account. The
 1b: Clone the workshop material
 ===============================
 
-This workshops is built around an existing body of code for the ``zorkalike``
+This workshop is built around an existing body of code for the ``zorkalike``
 project. You need to use ``git`` to clone that material into your workspace. On
 pythonanywhere, go to your *Dashboard*. From there, under "New Console" click
 the button labeled "$ Bash"; this will open up a new bash shell. You'll be

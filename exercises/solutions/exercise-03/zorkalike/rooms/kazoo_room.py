@@ -3,7 +3,7 @@ from zorkalike.rooms.room import Room
 
 class KazooRoom(Room):
     def __init__(self):
-        super(KazooRoom, self).__init__(
+        super().__init__(
             contents={'kazoo': 1})
 
     @property

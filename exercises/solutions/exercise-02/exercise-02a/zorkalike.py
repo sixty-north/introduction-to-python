@@ -47,7 +47,7 @@ class StaticRoom(Room):
 
 class KazooRoom(Room):
     def __init__(self):
-        super(KazooRoom, self).__init__(
+        super().__init__(
             contents={'kazoo': 1})
 
     @property
@@ -74,7 +74,7 @@ class LlamaRoom(Room):
     """
 
     def __init__(self, count):
-        super(LlamaRoom, self).__init__(
+        super().__init__(
             contents={'llama': count})
 
     @property
@@ -99,7 +99,7 @@ class BearRoom(StaticRoom):
     """
 
     def __init__(self):
-        super(BearRoom, self).__init__(
+        super().__init__(
             description='This room contains a grumpy looking bear.',
             contents={'bear': 1})
 

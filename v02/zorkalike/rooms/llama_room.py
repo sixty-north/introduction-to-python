@@ -6,7 +6,7 @@ class LlamaRoom(Room):
     """
 
     def __init__(self, count):
-        super(LlamaRoom, self).__init__(
+        super().__init__(
             contents={'llama': count})
 
     @property

@@ -10,9 +10,10 @@ Python dictionaries
 ===================
 
 For this exercise you'll need to do some work with Python dictionaries. These
-are used extensively throughout the code (and, indeed, throughout most Python
-code in the world), for example, for room contents, player inventory, and doors
-between rooms. Here's a quick introduction to dictionaries.
+are used extensively throughout the code and, indeed, throughout most Python
+code in the world. For example, we use dictionaries to model room contents,
+player inventory, and doors between rooms. Here's a quick introduction to
+dictionaries.
 
 You can create dictionaries with the ``{key: value, . . .}`` syntax. For
 example, to create a new dictionary mapping the word "apple" to the word "red",
@@ -23,7 +24,7 @@ you would use:
    x = {'apple': 'red'}
 
 You can access elements in a dictionary by key using the ``[]`` operator. So to
-see the value in a dictionary with the key "apple", you would use:
+get the value in a dictionary with the key "apple", you would use:
 
 .. code-block:: python
 
