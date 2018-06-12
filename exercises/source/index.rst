@@ -7,7 +7,7 @@ Introduction to Python Workshop
 ===============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    exercise_1
