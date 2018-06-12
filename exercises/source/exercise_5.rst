@@ -75,7 +75,7 @@ it. From your bash console run this command::
 After this, go back to your "Web" tab and click the reload button.
 
 Once this completes you should be able to point your browser at
-https://<your-user>.pythonanywhere.com and play zorkalike!
+``https://<your-user>.pythonanywhere.com`` and play ``zorkalike``!
 
 5e: Putting kazoos on the web
 =============================

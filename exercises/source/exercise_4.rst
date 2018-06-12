@@ -34,7 +34,7 @@ Before you can use a virtual environment you must first create it. To do this yo
 2. The existing Python environment (it would be another virtual environment) to
    copy from
 
-We'll create our environment using the Python 3.5 installation on
+We'll create our environment using the Python 3 installation on
 pythonanywhere, and we'll call it "itp" (short for "introduction to python"). In your bash console, run these commands:
 
 .. code-block:: bash
@@ -92,6 +92,15 @@ you've just created, so let's do that. Go to the bash console you've been using 
    $ workon itp
    $ cd ~/introduction-to-python/v03
    $ pip install .
+
+.. admonition:: pip
+
+   ``pip`` is the standard tool for installing Python packages and their
+   dependencies. In this case we've told it to install the package in the
+   current directory, i.e. ``.``. ``pip`` looks for ``setup.py`` and uses it to
+   determine how to install our package.
+
+   You can `read more about pip here <https://pip.pypa.io/en/stable/>`_.
 
 After a few seconds this will finish. From your bash console ``cd`` to your home
 directory and start a Python REPL like this:
