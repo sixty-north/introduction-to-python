@@ -86,8 +86,8 @@ run:
 
 .. code-block:: bash
 
-   cd ~/introduction-to-python/v01
-   python zorkalike.py
+   $ cd ~/introduction-to-python/v01
+   $ python3 zorkalike.py
 
 If you go west from the start room you'll be in your new room. Take that kazoo!
 

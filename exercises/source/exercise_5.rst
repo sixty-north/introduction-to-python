@@ -19,7 +19,7 @@ build a web server around ``zorkalike`` called ``zaweb``.
 We'll install ``zaweb`` and its dependencies into a new virtual environment.
 Create a new virtual environment named ``itp-web``::
 
-  $ mkvirtualenv -p python3.5 itp-web
+  $ mkvirtualenv -p python3 itp-web
 
 5b: Install ``zorkalike`` and ``zaweb`` into ``itp-web``
 ========================================================
@@ -69,7 +69,7 @@ apache.
 Copy your WSGI configuration file into the place where pythonanywhere expects
 it. From your bash console run this command::
 
-  cp ~/introduction-to-python/v04/zaweb/wsgi.py /var/www/<your-user>_pythonanywhere_com_wsgi.py
+  $ cp ~/introduction-to-python/v04/zaweb/wsgi.py /var/www/<your-user>_pythonanywhere_com_wsgi.py
 
 After this, go back to your "Web" tab and click the reload button.
 

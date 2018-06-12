@@ -55,6 +55,6 @@ the game! From the bash console (either an existing or new one) run this:
 .. code-block:: bash
 
    $ cd ~/introduction-to-python/v03
-   $ python -m zorkalike
+   $ python3 -m zorkalike
 
 Verify that the game works with your changes.

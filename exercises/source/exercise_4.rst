@@ -99,7 +99,7 @@ directory and start a Python REPL like this:
 .. code-block:: bash
 
    $ cd
-   $ python
+   $ python3
 
 This will start Python and take you to the ``>>>`` prompt. At this prompt run these commands:
 
