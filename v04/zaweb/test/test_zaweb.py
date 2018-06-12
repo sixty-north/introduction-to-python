@@ -1,7 +1,7 @@
 def test_home_page(client):
     resp = client.get('/')
     assert resp.status_code == 200
-    assert resp.data == b'ZAWeb: A web front-end for Zorkalike!'
+    assert resp.data.startswith(b'<h1>ZAWeb: A web front-end for Zorkalike!</h1>')
 
 
 def test_playthrough(client):
