@@ -18,11 +18,11 @@ in the system.
    package. While everything we describe in this exercise can be done using
    ``venv`` directly, we're going to use a higher-level tool called
    `virtualenvwrapper <https://virtualenvwrapper.readthedocs.io/en/latest/>`_
-   that simplified the use of virtual environments.
+   that simplifies the use of virtual environments.
 
    ``virtualenvwrapper`` is very widely used, and it's installed by default in
    your pythonanywhere shell environment. In particular, it provides the
-   ``mkvirtualenv`` and ``workon`` command you'll see below.
+   ``mkvirtualenv`` and ``workon`` commands you'll see below.
 
 
 4a: Create a new virtual environment
@@ -40,11 +40,11 @@ pythonanywhere, and we'll call it "itp" (short for "introduction to python"). In
 .. code-block:: bash
 
    $ cd ~/introduction-to-python/v03
-   $ mkvirtualenv -p python3.5 itp
+   $ mkvirtualenv -p python3 itp
 
 After a few seconds it should say "done" and show you a prompt like this::
 
-    (itp) 13:02 ~/introduction-to-python/v03$
+    (itp) 13:02 ~/introduction-to-python/v03 (master)$
 
 The "(itp)" at the front of the line is the name of the virtual environment.
 Bash on this system (and on many systems these days) is configured to display
@@ -67,17 +67,17 @@ environment. In the same bash shell as the previous section, run this command:
 
 You should see your prompt turn to something like this::
 
-  13:43 ~/introduction-to-python/v03$
+  13:43 ~/introduction-to-python/v03 (master)$
 
 The virtual environment indicator at the front of the prompt is gone. The
-command ``which python3.5`` will show that you're now using the system Python
+command ``which python3`` will show that you're now using the system Python
 installation.
 
 Now reactivate your environment::
 
   $ workon itp
 
-You'll see that your prompt is restored and that ``which python3.5`` shows that
+You'll see that your prompt is restored and that ``which python3`` shows that
 you're using the Python in your virtual environment.
 
 4c: Install ``zorkalike`` into your virtual environment

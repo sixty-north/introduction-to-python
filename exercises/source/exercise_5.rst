@@ -45,8 +45,9 @@ create the skeleton of the app, filling in the details in later steps.
 
 Go to the "Web" tab in pythonanywhere and click "Add new web app" on the left.
 Click "Next" on the first dialog, and then "manual configuration" on the next.
-Select "Python 3.5" for your Python version, and then "Next" on the dialog after
-that. You should now be on the configuration page for your app.
+Select "Python 3.6" (or "Python 3.5" if you've got an older pythonanywhere
+account) for your Python version, and then "Next" on the dialog after that. You
+should now be on the configuration page for your app.
 
 You need to tell the web app to use packages from our ``itp-web`` virtual
 environment. Scroll down to the "Virtualenv" section and click on "Enter path to
@@ -75,3 +76,16 @@ After this, go back to your "Web" tab and click the reload button.
 
 Once this completes you should be able to point your browser at
 https://<your-user>.pythonanywhere.com and play zorkalike!
+
+5e: Putting kazoos on the web
+=============================
+
+We didn't copy any of the kazoo-related work into the ``v04`` code base. As
+such, the version of ``zorkalike`` that you just put on the web doesn't
+include it. To get the kazoo feature online there are a few things to do:
+
+- Copy the relevant code from ``v03`` to ``v04``
+- Re-install ``zorkalike`` into the ``itp-web`` virtual environment
+- Re-start the web app
+
+Give it a try!

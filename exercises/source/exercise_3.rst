@@ -20,7 +20,7 @@ Note that this is a fairly mechanical change, but this is all you need to do to
 make your module part of the ``zorkalike`` package (which is rooted at
 ``v03/zorkalike``).
 
-Notice that ``KazooRoom`\ 's base class, ``Room``, is now defined in a different
+Notice that ``KazooRoom``\ 's base class, ``Room``, is now defined in a different
 module than ``KazooRoom``. Look at other room implementations to see how to
 *import* ``Room`` into the ``KazooRoom`` implementation.
 
@@ -31,7 +31,7 @@ In exercise 2 you modified the function ``make_game()`` to include a kazoo room.
 Locate this function in the ``v03/zorkalike`` package and make the same
 modification.
 
-Since ``KazooRoom`` is not defined in a different module than ``make_game``
+Since ``KazooRoom`` is now defined in a different module than ``make_game``
 you'll need to *import* it. See how other rooms are imported and follow that
 pattern for ``KazooRoom``.
 
