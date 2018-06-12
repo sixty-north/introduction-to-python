@@ -13,7 +13,15 @@ def create_app(test_config=None):
 
     @app.route('/')
     def home_handler():
-        return 'ZAWeb: A web front-end for Zorkalike!'
+        return '''<h1>ZAWeb: A web front-end for Zorkalike!</h1>
+        <table>
+        <tr><th>action</th><th>URL</th></tr>
+        <tr><td>show current description</td><td><pre>/description</pre></td></tr>
+        <tr><td>execute command</td><td><pre>/command?cmd=&lt;command text&gt;</pre></td></tr>
+        <tr><td>show status</td><td><pre>/status</pre></td></tr>
+        <tr><td>reset game</td><td><pre>/reset</pre></td></tr>
+        </table>
+        '''
 
 
     @app.route('/description')
