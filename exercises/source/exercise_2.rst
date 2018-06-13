@@ -91,8 +91,8 @@ run:
 
 If you go west from the start room you'll be in your new room. Take that kazoo!
 
-2c: Play the kazoo, please the bear
-===================================
+2c: Play the kazoo, calm the bear
+=================================
 
 As we all know, kazoo music is the best way to soothe an angry bear. In this
 task, we'll update the ``BearRoom`` so that playing the kazoo will calm the
