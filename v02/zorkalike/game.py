@@ -3,7 +3,7 @@ from zorkalike.player import Player
 from .direction import Direction
 from .rooms.bear_room import BearRoom
 from .rooms.llama_room import LlamaRoom
-from .rooms.static_room import StaticRoom
+from .rooms.start_room import StartRoom
 from .rooms.util import connect, room_details
 
 
@@ -16,7 +16,7 @@ class Game:
 def make_game():
     """Construct a game object.
     """
-    start_room = StaticRoom('You are in a dark room.')
+    start_room = StartRoom()
     llama_room = LlamaRoom(42)
     bear_room = BearRoom()
 

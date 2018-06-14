@@ -1,7 +1,4 @@
-from abc import ABC, abstractmethod
-
-
-class Room(ABC):
+class Room:
     def __init__(self,
                  contents=None):
         self.doors = {}
@@ -16,6 +13,5 @@ class Room(ABC):
         return None
 
     @property
-    @abstractmethod
     def description(self):
-        pass
+        return ''

@@ -1,4 +1,4 @@
-from .room import Room
+from zorkalike.rooms.room import Room
 
 
 class LlamaRoom(Room):

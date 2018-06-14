@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from enum import Enum
 from itertools import chain, permutations
 
@@ -13,7 +12,7 @@ class Player:
             self.alive, self.inventory)
 
 
-class Room(ABC):
+class Room:
     def __init__(self,
                  contents=None):
         self.doors = {}
@@ -28,21 +27,15 @@ class Room(ABC):
         return None
 
     @property
-    @abstractmethod
     def description(self):
-        pass
+        return ''
 
 
-class StaticRoom(Room):
-    """A room with a static description"""
-
-    def __init__(self, description, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._description = description
-
+class StartRoom(Room):
+    """The room you start in."""
     @property
     def description(self):
-        return self._description
+        return 'You are in a dark room.'
 
 
 class LlamaRoom(Room):
@@ -70,14 +63,12 @@ class LlamaRoom(Room):
         return None
 
 
-class BearRoom(StaticRoom):
+class BearRoom(Room):
     """A room containing a bear.
     """
 
     def __init__(self):
-        super().__init__(
-            description='This room contains a grumpy looking bear.',
-            contents={'bear': 1})
+        super().__init__(contents={'bear': 1})
 
     def process_command(self, command, player):
         if command == 'pet bear':
@@ -85,6 +76,10 @@ class BearRoom(StaticRoom):
             return ['The bear is not impressed and re-enacts '
                     '"The Revenant" on you.']
         return None
+
+    @property
+    def description(self):
+        return 'This room contains a grumpy looking bear.'
 
 
 class Game:
@@ -128,7 +123,7 @@ def connect(room_from: Room, room_to: Room, dir_from: Direction):
 def make_game():
     """Construct a game object.
     """
-    start_room = StaticRoom('You are in a dark room.')
+    start_room = StartRoom()
     llama_room = LlamaRoom(42)
     bear_room = BearRoom()
 

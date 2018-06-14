@@ -1,13 +1,12 @@
-from .static_room import StaticRoom
+from zorkalike.rooms.room import Room
 
 
-class BearRoom(StaticRoom):
+class BearRoom(Room):
     """A room containing a bear.
     """
 
     def __init__(self):
         super().__init__(
-            description='This room contains a grumpy looking bear.',
             contents={'bear': 1})
 
     def process_command(self, command, player):
@@ -16,3 +15,7 @@ class BearRoom(StaticRoom):
             return ['The bear is not impressed and re-enacts '
                     '"The Revenant" on you.']
         return None
+
+    @property
+    def description(self):
+        return 'This room contains a grumpy looking bear.'
