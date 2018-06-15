@@ -15,6 +15,11 @@ So the first thing you need to do is create a pythonanywhere account. The
 `create your new account here
 <https://www.pythonanywhere.com/registration/register/beginner/>`_.
 
+.. admonition:: Let's take a quick tour of pythonanywhere
+
+   If we're not all familiar with pythonanywhere, remind the instructor to give
+   you a quick tour of how it works!
+
 1b: Clone the workshop material
 ===============================
 
