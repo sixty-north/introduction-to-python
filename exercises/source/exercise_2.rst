@@ -43,6 +43,20 @@ You can add new key-value mappings in the same way:
 
    x['banana'] = 'yellow'
 
+You can check if a key is in a dictionary using the ``in`` keyword:
+
+.. code-block:: python
+
+   if 'banana' in x:
+       print('there is a banana')
+
+Likewise, you can check if a key is *not* in a dictionary usinst ``not in``:
+
+.. code-block:: python
+
+   if 'apple' not in x:
+       print('there is no apple')
+
 That's a *very* quick overview of dictionaries in Python, but it should be
 enough for this workshop.
 
