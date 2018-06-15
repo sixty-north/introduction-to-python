@@ -8,7 +8,7 @@
 import sys
 
 # add your project directory to the sys.path
-project_home = u'/home/<your-username>/introduction-to-python/v04/zaweb'
+project_home = '_HOME_DIR_/introduction-to-python/v04/zaweb'
 if project_home not in sys.path:
     sys.path = [project_home] + sys.path
 

@@ -70,7 +70,7 @@ apache.
 Copy your WSGI configuration file into the place where pythonanywhere expects
 it. From your bash console run this command::
 
-  $ cp ~/introduction-to-python/v04/zaweb/wsgi.py /var/www/<your-user>_pythonanywhere_com_wsgi.py
+  $ sed s@_HOME_DIR_@$HOME@ ~/introduction-to-python/v04/zaweb/wsgi.py > /var/www/"$USERNAME"_pythonanywhere_com_wsgi.py
 
 After this, go back to your "Web" tab and click the reload button.
 
