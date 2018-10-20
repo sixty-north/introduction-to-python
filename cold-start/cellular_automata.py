@@ -13,6 +13,7 @@ def apply(rule, row):
 
 def generate_cells(rule, num_rows, num_columns):
     row = [0] * num_columns
+    row[num_columns // 2] = 1
     for i in range(1, num_rows):
         yield row
         row = apply(rule, row)
