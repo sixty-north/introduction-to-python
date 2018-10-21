@@ -49,9 +49,12 @@ def write_grayscale(filename, pixels):
 
         # Pixel data
         pixel_data_bookmark = bmp.tell()
-        for row in reversed(pixels): # BMP files are bottom to top
+        for row in reversed(pixels):  # BMP files are bottom to top
             row_data = bytes(row)
             bmp.write(row_data)
+            padding = b'\x00' * ((4 - (len(row) % 4)) % 4)  # Pad row to multiple
+                                                            # of four bytes
+            bmp.write(padding)
 
         # End of file
         eof_bookmark = bmp.tell()
